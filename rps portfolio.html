@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruthie's portfolio site</title>
+    <style>
+      *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            text-decoration:none;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        .scroll-up-btn{
+            position:fixed;
+            height:45px;
+            width:42px;
+            background:mistyrose;
+            right:30px;
+            bottom:30px;
+            text-align:center;
+            line-height:45px;
+            color:maroon;
+            z-index: 9999;
+            font-size:30px;
+            border-radius: 6px;
+            cursor:pointer;
+            opacity:0;
+            pointer-events:none;
+            transition: all 0.3s ease;
+        }
+        .scroll-up-btn.show{
+            opacity:1;
+            pointer-events:auto;
+            bottom:30px; 
+        }
+        .max-width{
+            max-width:1300px;
+            padding:0 80px;
+            margin:auto;
+        }
+        .navbar{
+            position:fixed;
+            align-content: flex-end;
+            padding:15px 0;
+            width:100%;
+            transition: all 0.3s ease;
+            z-index:999;
+        
+        }
+        .navbar.sticky{
+            padding:15px 0;
+            background:mistyrose;
+        }
+        .navbar .max-width{
+            display:flex;
+            align-items:center;
+            justify-content: space-between;
+        }
+        .navbar .logo a{
+            font-size:38px;
+            font-weight:600;
+            color:maroon;
+          
+        
+        }
+        .navbar .logo a span{
+            color:mistyrose;
+            transition: all 0.3s ease;
+        }
+        .navbar.sticky .logo a span{
+            color:maroon;
+        }
+        .navbar .navbar-menu li{
+            list-style:none;
+            display:inline-block;
+            justify-content: flex-end;
+            align-content:right;
+        }
+        .navbar .navbar-menu li a {
+            color:maroon;
+            font: size 25px;
+            font-weight:500;
+            margin-left:25px;
+            transition:.3s ease; 
+        }
+        .navbar .navbar-menu li a:hover{
+        color:whitesmoke;
+        }
+        .navbar.sticky .navbar-menu li a:hover{
+            color:whitesmoke;
+        }
+        .service{
+            display:flex;
+            background:center;
+            background-size:cover;
+            height:100vh;
+            color:maroon;
+            background-position:center;
+            background-image: url("Rps\ background\ .jpg");
+        text-align: center;
+        opacity: 100;
+        justify-content: center;
+        }
+        .service .max-width{
+            margin: auto 0 auto 40px;
+        }
+        .service .service-content .section-title{
+            font-size:39px;
+            font-weight: 600;
+            opacity: 2;
+        background-position: center; 
+        justify-content: center;
+        
+        }
+        .service .content-service{
+            display:flex;
+            flex-wrap:wrap;
+            align-items:center;
+            justify-content:space-between;
+        }
+      
+        .service .content-service .card{
+            width:max-content;
+            color: maroon;
+            text-align:center;
+            border-radius:6px;
+            padding: 20px 25px;
+            cursor:pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex: row;
+            row-gap: 25px;
+        }
+        .service .content-service .card .text span{color: maroon;}
+        .service .content-service .card .text span:hover{color: mistyrose;}
+        .service .content-service .card:hover{
+            background-color:maroon;
+        
+        }
+        .service .content-service .card .box{
+            transition: all 0.3s ease;
+        }
+        .service .content-service .card:hover .box{
+            transform: scale(1.05);
+        }
+        .service .content-service .card i{
+            font-size:50px;
+            transition: color 0.3 ease;
+        }
+        .service .content-service .card:hover i{
+            color:mistyrose;
+        }
+        .service .content-service .card .text{
+            font-size:25px;
+            font-weight:500;
+            margin: 10px 0 7px 0;
+        }
+        .service .content-service .card p{
+            font-size:14px;
+            margin: 10px 0 7px 0;
+            transition: all 0.3 ease;
+        }
+        .service .content-service .card:hover p{
+            color:mistyrose;
+        }
+        .service .content-service .card:hover .text{
+            color:mistyrose;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div>
+            <div class="max width"> <div class="logo"> <a href="#">RUTHIE</a></div>
+            <div class="navbar-menu" >
+            <ul>
+                <li><a href="rps.html" class="nav-link"><span>Home</span></a></li>
+                <li><a href="rps about.html" class="nav-link"><span>About</span></a></li>
+                <li><a href="#resume" class="nav-link"><span>Resume</span></a></li>
+                <li><a href="rps portfolio.html" class="nav-link"><span>Portfolio</span></a></li>
+                <li><a href="rps contact.html" class="nav-link"><span>Contact</span></a></li>
+
+            </ul>
+ 
+            </div>
+        </div>
+    </nav>
+     <!-- Service Section-->
+     <section id="service" class="service">
+        <div class="max-width">
+            <div class="service-content">
+                <div class="section-title"><h2>PORTFOLIO</h2> </div>
+        <div class="content-service">
+            <div class="card">
+                <div class="box">
+                    <i class="fas fa-paint-brush"></i>
+                    <div class="text"> <a href="hestia hub.html"><span>Hestia's Hub</span></a></div>
+                    <p>one stop shop for home decor</p>
+                   
+                    </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <i class="fas fa-gift"></i>
+                    <div class="text"><a href="the pastry place.html"><span>The Pastry Place</span></a></div>
+                    <p>treat shop</p>
+                    
+                    </div>
+            </div>
+
+             <div class="card">
+                  <div class="box">
+                   <i class="fas fa-comment-dollar"></i>
+                      <div class="text"><a href="kay's couture.html"><span>Kay's Couture</span></a></div>
+                     <p>online thrift shop</p>
+                     
+                    </div>
+                    </div>     
+            </div>
+        </div>
+        </div>
+</section>   
+</body>
+</html>

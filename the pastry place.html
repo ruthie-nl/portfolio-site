@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>the pastry place</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            text-decoration:none;
+            font-family: 'Montserrat', Impact, Haettenschweiler, 'Arial Narrow Bold',;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        .scroll-up-btn{
+            position:fixed;
+            height:45px;
+            width:42px;
+            background:blanchedalmond;
+            right:30px;
+            bottom:30px;
+            text-align:center;
+            line-height:45px;
+            color:chocolate;
+            z-index: 9999;
+            font-size:30px;
+            border-radius: 6px;
+            cursor:pointer;
+            opacity:0;
+            pointer-events:none;
+            transition: all 0.3s ease;
+        }
+        .scroll-up-btn.show{
+            opacity:1;
+            pointer-events:auto;
+            bottom:30px; 
+        }
+        .max-width{
+            max-width:1300px;
+            padding:0 80px;
+            margin:auto;
+        }
+        .navbar{
+            position:fixed;
+            padding:15px 0;
+            width:100%;
+            transition: all 0.3s ease;
+            z-index:999;
+        
+        }
+        .navbar.sticky{
+            padding:15px 0;
+            background:blanchedalmond;
+        }
+        .navbar .max-width{
+            display:flex;
+            align-items:center;
+            justify-content: space-between;
+        }
+        .navbar .logo a{
+            font-size:38px;
+            font-weight:600;
+            color:chocolate;
+          
+        
+        }
+        .navbar .logo a span{
+            color:blanchedalmond;
+            transition: all 0.3s ease;
+        }
+        .navbar.sticky .logo a span{
+            color:chocolate;
+        }
+        .navbar .menu li{
+            list-style:none;
+            display:inline-block;
+        }
+        .navbar .menu li a {
+            color:chocolate;
+            font-size:15px;
+            font-weight:500;
+            margin-left:25px;
+            transition:.3s ease; 
+        }
+        .navbar .menu li a:hover{
+        color:blanchedalmond;
+        }
+        .navbar.sticky .menu li a:hover{
+            color:burlywood;
+        }
+        .btn-menu{
+            color:chocolate;
+            font-size:23px;
+            cursor:pointer;
+            display:none;
+        }
+        .home{
+            display:flex;
+            background:center;
+            background-size:cover;
+            height:100vh;
+            color:chocolate;
+            background-position: center;
+            background-color: burlywood;
+        text-align: center;
+        opacity: 100;
+        }
+        .home .max-width{
+            margin: auto 0 auto 40px;
+        }
+        .home .home-content .text1{
+            font-size:75px;
+            opacity: 2;
+        background-position: center; 
+        
+        }
+        .home .home-content
+        {opacity: 2;
+        background-position: center;}
+        
+        .home .home-content .text2{
+            font: size 27px;
+            font-weight:600;
+            margin-left:-3px;
+            opacity: 100;
+        background-position: center; 
+        
+        }
+        .home .home-content a{
+            display:inline-block;
+            color:blanchedalmond;
+            font-size:25px;
+            padding: 12px 36px;
+            margin-top:20px;
+            border-radius:16px;
+            border:2px solid blanchedalmond;
+            transition:.3s;
+        }
+        .home .home-content a:hover{
+            background:burlywood;}
+        
+            /* About */
+        section{
+            padding: 100px 0 ;
+        }
+        
+        .about .section-title{
+            position:relative;
+            text-align:center;
+            font-size: 40px;
+            font-weight: 500;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold',;
+            margin-bottom:60px;
+            padding-bottom:20px;
+        }
+        .about .section-title::before{
+            content: "";
+            position:absolute;
+            bottom:0px;
+            left:50%;
+            width:180px;
+            height:3px;
+            background:blanchedalmond;
+            transform:translateX(-50%);
+        
+        }
+        .about .section-title::after{
+            content: "treats like no other";
+            position:absolute;
+            bottom:-17px;
+            left:50%;
+            font-size:20px;
+            padding:5px;
+            color:chocolate;
+            background:blanchedalmond;
+            transform:translateX(-50%);
+        
+        }
+        .about .about-content{
+            display:flex;
+            flex-wrap:wrap;
+            align-items:center;
+            justify-content:space-between;
+        
+        }
+        .about .about-content .left{
+        width:45%;
+        }
+        .about .about-content .left img{
+            height:400px;
+            width:400px;
+            object-fit:cover;
+            border-radius: 8px;
+        }
+        .about .about-content .right{
+            width:53%
+        }
+        .about .about-content .right .text{
+            font-size:25px;
+            font-weight:600;
+            margin-bottom:10px;
+        }
+        .about .about-content .right .text span{
+            color:chocolate;
+        }
+        .about .about-content .right p{
+            text-align:justify;
+        
+        }
+        .about .about-content .right a{
+            display:inline-block;
+            color:blanchedalmond;
+            font-size:12px;
+            padding: 12px 20px;
+            margin-top:20px;
+            border-radius:16px;
+            border:2px solid burlywood;
+            transition:.3s;
+        
+        }
+        .about .about-content .right a:hover{
+            color:chocolate;
+            background:burlywood;
+        }
+        .service .section-title{
+            position:relative;
+            text-align:center;
+            font-size: 40px;
+            font-weight: 500;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold',;
+            margin-bottom:60px;
+            padding-bottom:20px;
+        }
+        .service .section-title::before{
+            content: "";
+            position:absolute;
+            bottom:0px;
+            left:50%;
+            width:180px;
+            height:3px;
+            background:chocolate;
+            transform:translateX(-50%);
+        
+        }
+        .service .section-title::after{
+            content: "our products include";
+            position:absolute;
+            bottom:-17px;
+            left:50%;
+            font-size:20px;
+            padding:5px;
+            color:blanchedalmond;
+            background:chocolate;
+            transform:translateX(-50%);
+        
+        }
+        
+        .service .content-service{
+            display:flex;
+            flex-wrap:wrap;
+            align-items:center;
+            justify-content:space-between;
+        }
+        .service{
+            color:chocolate;
+            background:burlywood;
+        }
+        .service .content-service .card{
+            width: calc(33% - 20px);
+            background:blanchedalmond;
+            text-align:center;
+            border-radius:6px;
+            padding: 20px 25px;
+            cursor:pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .service .content-service .card:hover{
+            background-color:burlywood;
+        
+        }
+        .service .content-service .card .box{
+            transition: all 0.3s ease;
+        }
+        .service .content-service .card:hover .box{
+            transform: scale(1.05);
+        }
+        .service .content-service .card i{
+            font-size:50px;
+            transition: color 0.3 ease;
+        }
+        .service .content-service .card:hover i{
+            color:burlywood;
+        }
+        .service .content-service .card .text{
+            font-size:25px;
+            font-weight:500;
+            margin: 10px 0 7px 0;
+        }
+        .service .content-service .card p{
+            font-size:14px;
+            margin: 10px 0 7px 0;
+            transition: all 0.3 ease;
+        }
+        .service .content-service .card:hover p{
+            color:black;
+        }
+        .service .content-service .card:hover .text{
+            color:black;
+        }
+        .contact .section-title{
+            position:relative;
+            text-align:center;
+            font-size: 40px;
+            font-weight: 500;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold',;
+            margin-bottom:60px;
+            padding-bottom:20px;
+        }
+        .contact .section-title::before{
+            content: "";
+            position:absolute;
+            bottom:0px;
+            left:50%;
+            width:180px;
+            height:3px;
+            background:blanchedalmond;
+            transform:translateX(-50%);
+        
+        }
+        .contact .section-title::after{
+            content: "Get in Touch";
+            position:absolute;
+            bottom:-17px;
+            left:50%;
+            font-size:20px;
+            padding:5px;
+            color:blanchedalmond;
+            background:chocolate;
+            transform:translateX(-50%);
+        
+        }
+        
+        .contact .contact-content{
+            display:flex;
+            flex-wrap:wrap;
+            align-items:center;
+            justify-content: space-between;
+        }
+        .contact .contact-content .column{
+            width: calc(50% - 30px);
+        }
+        .contact .contact-content .text{
+        font-size:20px;
+        font-weight:600;
+        margin-bottom:10px;
+        }
+        .contact .contact-content .left p{
+        text-align:justify;
+        
+        }
+        .contact .contact-content .left .icons{
+            margin:10px 0;
+        
+        }
+        .contact .contact-content .row{
+            display:flex;
+            height:65px;
+            align-items:center;
+        }
+        .contact .contact-content .row .info{
+            margin-left: 30px;
+        }
+        .contact .contact-content .row i{
+            font-size: 25px;
+            color:blanchedalmond;
+        }
+        .contact .contact-content .info .head{
+            font-weight:700;
+        }
+        .contact .contact-content .info  .sub-title{
+            color: burlywood;
+        }
+        .contact .right form .fields{
+            display:flex;
+        
+        }
+        .contact .right form .field,
+        .contact .right form .fields .field{
+            height:45px;
+            width:100%;
+            margin-bottom: 15px;
+        }
+        .contact .right form .textarea{
+            height: 80px;
+            width:100%;
+        
+        }
+        .contact .right form .name{
+            margin-right:10px;
+        
+        }
+        .contact .right form .email{
+            margin-left: 10px;
+        }
+        .contact .right form .field input,
+        .contact .right form .field textarea{
+            height:100%;
+            width:100%;
+            border: 1px solid beige;
+            border-radius: 6px;
+            outline:none;
+            padding: 0 15px;
+            font-size:17px;
+        
+        }
+        .contact .right form .field textarea{
+            padding-top:10px;
+            resize:none;
+        }
+        .contact .right form .button{
+            height:47px;
+            width:170px;
+        }
+        .contact .right form .button button{
+            width:100%;
+            height:100%;
+            border:2px solid blanchedalmond;
+            background: blanchedalmond;
+            color: chocolate;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            cursor:pointer;
+        }
+        .contact .right form .button button:hover{
+            color: blanchedalmond;
+            background:none;
+        }
+        footer{
+            background:chocolate;
+            padding:20px 23px;
+            text-align:center;
+        
+        }
+        footer span a{
+            color:blanchedalmond;
+            font-weight:700;
+        }
+        footer span a:hover{
+            text-decoration:underline;
+        }</style>
+</head>
+<body>
+    <!--Navbar-->
+    <div class="scroll-up-btn"> <i class="fas fa-angle-up"></i></div>
+    <nav class="navbar">
+        <div class="max width"> <div class="logo"> <a href="#">The Pastry Place.</a></div>
+<ul class="menu">
+    <li><a href="#about"> About Us</a></li>
+    <li><a href="#service">Menu</a></li>
+    <li><a href="#contact">Reservations</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
+<div class="btn menu"><i class="fas fa-paint-brush"></i></div>
+    </div>    
+    </nav>
+    <!--Landing Page-->
+    <section id="home" class="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="text1"> The Pastry Place</div>
+                <div class="text2"> home of delicious and indulgent treats</div>
+                <a href="#">Contact</a>
+                <div class="column right" style="object-fit: scale-down;"> <img">  </div>
+            </div>
+        </div>
+    </section>
+   <!-- About -->
+
+   <section class="about" id="about">
+       <div class="max-width">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+        <div class="left column">
+               <img src="IMG_20181203_174530.jpg" alt="">
+          </div>
+          <div class="column right">
+        <div class="text">Treats <span>like no other </span></div>
+        <p>at the pastry place, we know how important pastries and treats are in making your day special by bring a smile to your face, so we aim to serve you only the best there is.</p>
+        <a href="#">Read More</a>
+          </div>
+         </div>
+        </div>
+     </section> 
+     <!-- Service Section-->
+     <section class="service" id="service">
+        <div class="max-width">
+        <h2 class="section-title">Menu</h2>
+        <div class="content-service">
+            <div class="card">
+                <div class="box">
+                    <i class="fas fa-paint-brush"></i>
+                    <div class="text">Cakes</div>
+                    <p>Moist Decadent Cakes.</p>
+                    </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <i class="fas fa-gift"></i>
+                    <div class="text">Parfaits</div>
+                    <p>Cake Parfaits, with or without toppings? your choice</p>
+                    </div>
+            </div>
+            <div class="card">
+                <div class="box">
+                    <i class="fas fa-comment-dollar"></i>
+                    <div class="text">Cookies</div>
+                    <p>chocolate chip or butter cream??</p>
+                    </div>
+            </div>
+        </div>
+        </div>
+</section>   
+       <!--Contact Section -->
+
+    <section class="contact" id="contact">
+        <div class="max-width">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+            <div class="column left">
+                <div class="text">Make your enquiries and Reservations here</div>
+                <p></p>
+                <div class="icons">
+                    <div class="row">
+                        <i class="fas fa-user"></i>
+                        <div class="info">
+                            <div class="sub-title">The Pastry Place</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="info">
+                            <div class="sub-title">Kano, Nigeria</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info">
+                            <div class="sub-title">thepastryplace@gmail.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column right">
+                <div class="text">Message</div>
+                <form action="#">
+                    <div class="fields">
+                        <div class="field name">
+                        <input type="text" placeholder="Name">
+                        </div>
+                        <div class="field email">
+                            <input type="text" placeholder="Email">
+                            </div>
+                        </div>
+                                <div class="field textarea">
+                                    <textarea cold="30" row="10" placeholder ="Place your Order here"></textarea>
+                                    </div>
+                                    <div class="button">
+                                            <button type="submit">Send Message</button>
+                                        </div>
+                    
+                </form>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!--footer section-->
+     <footer><span>Created By <a href="#">The Pastry Place </a><span class="far fa-copyright"></span>2022. All rights Reserved</span>
+     </footer>
+<!--JS Files-->
+<script >$(document).ready(function(){
+    $(window).scroll(function(){
+        if(this.scrollY > 20){
+            $('.navbar').addClass("sticky");
+        }else{
+            $('.navbar').removeClass("sticky");
+        }
+        if(this.scrollY> 500){
+            $('.scroll-up-btn').addClass("show");
+        }else{
+            $('.scroll-up-btn').removeClass("show");
+        }
+    });
+    $('.scroll-up-btn').click(function(){
+        $('html').animate({scrollTop:0});
+    });
+
+    $('.btn-menu').click(function(){
+        $('.navbar .menu').toggleClass("active");
+        $('.btn-menu i').toggleClass("active");
+    });
+
+    var typed = new Typed(".typing",{
+        strings: [ "Cakes", "Parfait", "Cookies"],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true
+    })
+    // owl carousel
+
+    $('.carousel').owlCarousel({
+        margin: 20,
+        loop: true,
+        autplayTimeOut:2000,
+        autoplayHoverPause: true,
+        responsive:{
+            0:{
+                items: 1,
+                nav: false
+            },
+            600:{
+                items:2,
+                nav:false
+            },
+            1000:{
+                items: 3,
+                nav:false
+            }
+    }
+
+    });
+});</script>
+</body>

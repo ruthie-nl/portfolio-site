@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruthie's portfolio site</title>
+    <style>
+      *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            text-decoration:none;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        .scroll-up-btn{
+            position:fixed;
+            height:45px;
+            width:42px;
+            background:black;
+            right:30px;
+            bottom:30px;
+            text-align:center;
+            line-height:45px;
+            color:maroon;
+            z-index: 9999;
+            font-size:30px;
+            border-radius: 6px;
+            cursor:pointer;
+            opacity:0;
+            pointer-events:none;
+            transition: all 0.3s ease;
+        }
+        .scroll-up-btn.show{
+            opacity:1;
+            pointer-events:auto;
+            bottom:30px; 
+        }
+        .max-width{
+            max-width:1300px;
+            padding:0 80px;
+            margin:auto;
+        }
+        .navbar{
+            position:fixed;
+            align-content: flex-end;
+            padding:15px 0;
+            width:100%;
+            transition: all 0.3s ease;
+            z-index:999;
+        
+        }
+        .navbar.sticky{
+            padding:15px 0;
+            background:black;
+        }
+        .navbar .max-width{
+            display:flex;
+            align-items:center;
+            justify-content: space-between;
+        }
+        .navbar .logo a{
+            font-size:38px;
+            font-weight:600;
+            color:maroon;
+          
+        
+        }
+        .navbar .logo a span{
+            color:black;
+            transition: all 0.3s ease;
+        }
+        .navbar.sticky .logo a span{
+            color:maroon;
+        }
+        .navbar .navbar-menu li{
+            list-style:none;
+            display:inline-block;
+            justify-content: flex-end;
+            align-content:right;
+        }
+        .navbar .navbar-menu li a {
+            color:maroon;
+            font: size 25px;
+            font-weight:500;
+            margin-left:25px;
+            transition:.3s ease; 
+        }
+        .navbar .navbar-menu li a:hover{
+        color:beige;
+        }
+        .navbar.sticky .navbar-menu li a:hover{
+            color:beige;
+         
+}
+.about{
+            display:flex;
+            background:center;
+            background-size:cover;
+            height:100vh;
+            color:maroon;
+            background-position:center;
+            background-image: url("Rps\ background\ .jpg");  
+        text-align: center;
+        opacity: 100;
+        justify-content: center;
+        }
+        .about .max-width{
+            margin: auto 0 auto 40px;
+        }
+        .about .about-content .section-title{
+            font-size:39px;
+            font-weight: 600;
+            opacity: 2;
+        background-position: center; 
+        justify-content: center;
+        
+        }
+        .about .about-content
+        {opacity: 2;
+}
+        
+        .about .about-content .text1{
+            font: size 30px;
+            font-weight:600;
+            margin-left:-3px;
+            opacity: 100;
+            justify-content: center; 
+        }
+     .about .about-content .row .grid1 {font-size: 20px;
+        display: flex;
+        list-style-type:circle;
+        flex-direction: row-reverse;
+         justify-content: center;
+    line-height: normal;
+    list-style-position: inside;
+    
+
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div>
+            <div class="max width"> <div class="logo"> <a href="#">RUTHIE</a></div>
+            <div class="navbar-menu" >
+            <ul>
+                <li><a href="rps.html" class="nav-link"><span>Home</span></a></li>
+                <li><a href="rps about.html" class="nav-link"><span>About</span></a></li>
+                <li><a href="#resume" class="nav-link"><span>Resume</span></a></li>
+                <li><a href="rps portfolio.html" class="nav-link"><span>Portfolio</span></a></li>
+                <li><a href="rps contact.html" class="nav-link"><span>Contact</span></a></li>
+
+            </ul>
+
+            </div>
+        </div>
+
+    </nav>
+
+    <section id="about" class="about">
+        <div class="max-width">
+            <div class="about-content">
+                <div class="section-title"><h2>ABOUT</h2> </div>
+                 <Div class="text1"><h3>Pharmacist in training &amp; Junior Web Developer.</h3>
+                    <p class="fst-italic">
+                    a Pharmacist in training with web development skills mainly in HTML, CSS and WordPress
+                    </p> 
+                </Div>
+                <div class="row">
+                    <div class="grid1">
+                      <ul>
+                          <li> <strong>Birthday:</strong> <span>22nd October</span></li>
+                          <li> <strong>Github:</strong> <span><github class="com">ruthie_nl</github></span></li>
+                          <li><strong>Phone:</strong> <span>+234 905 XXX XXXX</span></li>
+                          <li><strong>City:</strong> <span>Kano, Nigeria</span></li>
+                          <li> <strong>Age:</strong> <span>20+</span></li>
+                          <li> <strong>Degree:</strong> <span>Bachelors(pending)</span></li>
+                          <li> <strong>Email:</strong> <span>ruthdauda24@gmail.com</span></li>
+                          <li> <strong>Freelance:</strong> <span>Available</span></li>
+                        </ul>
+                      </div>
+                    </div>
+            </div>
+
+        </div>
+
+    </section>
+</body>
+</html>
